@@ -1,8 +1,38 @@
 # Compiled class file
 *.class
 
+# Binarys and generated files
+/bin/
+/out/
+
+# Maven Configuration
+/.mvn/
+/mvnw
+/mvnw.cmd
+
+# Gradle configuration
+/.gradle/
+/gradlew
+/gradlew.bat
+/gradle/
+/build/
+
+# Project configuration
+/.classpath
+/.project
+/.settings/
+
+# IDEs
+/.idea/
+*.iml
+*.ipr
+*.iws
+/.vscode/
+
 # Log file
 *.log
+/logs/
+/tmp/
 
 # BlueJ files
 *.ctxt
@@ -22,3 +52,25 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Environmental variables and credentials
+.env
+*.properties
+*.yml
+!application.properties
+!application.yml
+
+# Java specific libraries and cache
+/.m2/repository/
+/.metadata/
+/.recommenders/
+/.externalToolBuilders/
+
+# Others
+/node_modules/
+/coverage/
+.npm/
