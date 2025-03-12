@@ -18,8 +18,8 @@
             </p>
           </div>
           <div class="row gx-5">
-            <div th:each="club : ${clubs}" class="col-lg-6">
-              <div class="position-relative mb-5">
+            <div th:each="club : ${clubs}" class="col-lg-6 mb-2">
+              <div class="position-relative mb-3">
                 <img
                   class="img-fluid rounded-3 mb-3 mw-100 mh-100"
                   th:src="${club.photoUrl}"
@@ -31,6 +31,11 @@
                   href="#!"
                 ></a>
               </div>
+              <a
+                th:href="@{/clubs/{clubId}/edit(clubId=${club.id})}"
+                class="btn btn-primary"
+                >Edit</a
+              >
             </div>
           </div>
         </div>
