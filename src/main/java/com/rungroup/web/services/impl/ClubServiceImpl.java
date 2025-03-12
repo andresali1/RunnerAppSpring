@@ -3,7 +3,6 @@ package com.rungroup.web.services.impl;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.rungroup.web.dto.ClubDto;
@@ -15,7 +14,6 @@ import com.rungroup.web.services.ClubService;
 public class ClubServiceImpl implements ClubService {
 	private ClubRepository clubRepository;
 
-	@Autowired
 	public ClubServiceImpl(ClubRepository clubRepository) {
 		super();
 		this.clubRepository = clubRepository;
