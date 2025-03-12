@@ -39,4 +39,9 @@ public class ClubServiceImpl implements ClubService {
 
 		return clubDto;
 	}
+
+	@Override
+	public Club saveClub(Club club) {
+		return clubRepository.save(club);
+	}
 }
