@@ -15,7 +15,6 @@ import com.rungroup.web.models.Club;
 import com.rungroup.web.services.ClubService;
 
 import jakarta.validation.Valid;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ClubController {
@@ -74,4 +73,11 @@ public class ClubController {
         clubService.updateClub(clubDto);
         return "redirect:/clubs";
     }
+
+    @GetMapping("/clubs/{clubId}/delete")
+    public String deleteClub(@PathVariable("clubId") long clubId) {
+        clubService.deleteClub(clubId);
+        return "redirect:/clubs";
+    }
+
 }
