@@ -15,6 +15,7 @@ import com.rungroup.web.models.Club;
 import com.rungroup.web.services.ClubService;
 
 import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ClubController {
@@ -46,6 +47,13 @@ public class ClubController {
 
         clubService.saveClub(clubDto);
         return "redirect:/clubs";
+    }
+
+    @GetMapping("/clubs/{clubId}")
+    public String clubDetail(@PathVariable("clubId") long clubId, Model model) {
+        ClubDto clubDto = clubService.findClubById(clubId);
+        model.addAttribute("club", clubDto);
+        return "clubs-detail";
     }
 
     @GetMapping("/clubs/{clubId}/edit")

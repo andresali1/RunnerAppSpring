@@ -32,6 +32,11 @@
                 ></a>
               </div>
               <a
+                th:href="@{/clubs/{clubId}(clubId=${club.id})}"
+                class="btn btn-primary"
+                >View</a
+              >
+              <a
                 th:href="@{/clubs/{clubId}/edit(clubId=${club.id})}"
                 class="btn btn-primary"
                 >Edit</a
