@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 
-import com.rungroup.web.dto.ClubDto;
 import com.rungroup.web.dto.EventDto;
 import com.rungroup.web.models.Event;
 import com.rungroup.web.services.EventService;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class EventController {
@@ -84,4 +82,11 @@ public class EventController {
         eventService.updateEvent(eventDto);
         return "redirect:/events";
     }
+
+    @GetMapping("/events/{eventId}/delete")
+    public String deleteEvent(@PathVariable("eventId") Long eventId) {
+        eventService.deleteEvent(eventId);
+        return "redirect:/events";
+    }
+
 }
