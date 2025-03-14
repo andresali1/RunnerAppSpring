@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 
+import com.rungroup.web.dto.ClubDto;
 import com.rungroup.web.dto.EventDto;
 import com.rungroup.web.models.Event;
 import com.rungroup.web.services.EventService;
@@ -53,10 +54,34 @@ public class EventController {
             BindingResult result,
             Model model) {
         if (result.hasErrors()) {
+            model.addAttribute("event", eventDto);
             return "events-create";
         }
 
         eventService.createEvent(clubId, eventDto);
         return "redirect:/clubs/" + clubId;
+    }
+
+    @GetMapping("/events/{eventId}/edit")
+    public String editEventForm(@PathVariable("eventId") long eventId, Model model) {
+        EventDto event = eventService.findByEventId(eventId);
+        model.addAttribute("event", event);
+        return "events-edit";
+    }
+
+    @PostMapping("/events/{eventId}/edit")
+    public String updateEvent(@PathVariable("eventId") long eventId,
+            @Valid @ModelAttribute("event") EventDto eventDto,
+            BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            model.addAttribute("event", eventDto);
+            return "events-edit";
+        }
+
+        EventDto eventDtoDb = eventService.findByEventId(eventId);
+        eventDto.setId(eventId);
+        eventDto.setClub(eventDtoDb.getClub());
+        eventService.updateEvent(eventDto);
+        return "redirect:/events";
     }
 }

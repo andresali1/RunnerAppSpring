@@ -43,4 +43,10 @@ public class EventServiceImpl implements EventService {
         event.setClub(club);
         eventRepository.save(event);
     }
+
+    @Override
+    public void updateEvent(EventDto eventDto) {
+        Event event = mapToEvent(eventDto);
+        eventRepository.save(event);
+    }
 }
