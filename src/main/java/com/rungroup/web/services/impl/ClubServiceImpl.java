@@ -15,8 +15,13 @@ public class ClubServiceImpl implements ClubService {
 	private ClubRepository clubRepository;
 
 	public ClubServiceImpl(ClubRepository clubRepository) {
-		super();
 		this.clubRepository = clubRepository;
+	}
+
+	@Override
+	public List<ClubDto> searchClubs(String query) {
+		List<Club> clubs = clubRepository.searchClubs(query);
+		return clubs.stream().map(club -> mapToClubDto(club)).collect(Collectors.toList());
 	}
 
 	@Override

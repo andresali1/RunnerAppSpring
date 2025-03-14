@@ -15,6 +15,7 @@ import com.rungroup.web.models.Club;
 import com.rungroup.web.services.ClubService;
 
 import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ClubController {
@@ -22,6 +23,13 @@ public class ClubController {
 
     public ClubController(ClubService clubService) {
         this.clubService = clubService;
+    }
+
+    @GetMapping("/clubs/search")
+    public String searchClub(@RequestParam(value = "query") String query, Model model) {
+        List<ClubDto> clubs = clubService.searchClubs(query);
+        model.addAttribute("clubs", clubs);
+        return "clubs-list";
     }
 
     @GetMapping("/clubs")
