@@ -1,6 +1,5 @@
 package com.rungroup.web.models;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import org.hibernate.annotations.CreationTimestamp;
