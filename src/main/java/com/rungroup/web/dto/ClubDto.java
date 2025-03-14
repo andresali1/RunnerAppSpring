@@ -1,6 +1,7 @@
 package com.rungroup.web.dto;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Builder;
@@ -21,4 +22,5 @@ public class ClubDto {
 	private String content;
 	private LocalDateTime createdOn;
 	private LocalDateTime updatedOn;
+	private List<EventDto> events;
 }

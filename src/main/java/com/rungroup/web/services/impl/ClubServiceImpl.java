@@ -9,6 +9,8 @@ import com.rungroup.web.dto.ClubDto;
 import com.rungroup.web.models.Club;
 import com.rungroup.web.repositories.ClubRepository;
 import com.rungroup.web.services.ClubService;
+import static com.rungroup.web.mapper.ClubMapper.mapToClub;
+import static com.rungroup.web.mapper.ClubMapper.mapToClubDto;
 
 @Service
 public class ClubServiceImpl implements ClubService {
@@ -51,31 +53,5 @@ public class ClubServiceImpl implements ClubService {
 	@Override
 	public void deleteClub(long clubId) {
 		clubRepository.deleteById(clubId);
-	}
-
-	private ClubDto mapToClubDto(Club club) {
-		ClubDto clubDto = ClubDto.builder()
-				.id(club.getId())
-				.title(club.getTitle())
-				.photoUrl(club.getPhotoUrl())
-				.content(club.getContent())
-				.createdOn(club.getCreatedOn())
-				.updatedOn(club.getUpdatedOn())
-				.build();
-
-		return clubDto;
-	}
-
-	private Club mapToClub(ClubDto clubDto) {
-		Club club = Club.builder()
-				.id(clubDto.getId())
-				.title(clubDto.getTitle())
-				.photoUrl(clubDto.getPhotoUrl())
-				.content(clubDto.getContent())
-				.createdOn(clubDto.getCreatedOn())
-				.updatedOn(clubDto.getUpdatedOn())
-				.build();
-
-		return club;
 	}
 }
