@@ -1,4 +1,4 @@
-# PokePorject
+# Runner App Spring
 primer proyecto personal MVC utilizando SpringBoot buscando unicamente fortalecer conocimientos de la estructura y funcionalidad de Spring framework. Es una aplicación web con un CRUD para grupos de runners y eventos. Usa PostgreSql como motor de base de datos.
 
 ### Tecnologías Utilizadas
